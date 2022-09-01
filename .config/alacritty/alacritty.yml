@@ -1,0 +1,39 @@
+env:
+  TERM: xterm-256color
+
+draw_bold_text_with_bright_colors: true
+
+window:
+  opacity: 0.8
+
+cursor:
+  style:
+    shape: Block
+    blinking: On
+  blink_interval: 500
+
+font:
+  size: 20
+  normal:
+    family: JetBrainsMono
+    style: Regular
+  bold:
+    family: JetBrainsMono
+    style: Bold
+  italic:
+    family: Operator Mono
+    style: Italic
+  bold_italic:
+    family: Operator Mono
+    style: Bold Italic
+
+live_config_reload: true
+
+colors:
+  primary:
+    background: '#2e3440'
+    # foreround: '#d8dee9'
+    # background: '0x272822'
+    foreround: '0xf1ebeb'
+  normal:
+    black: '0x18262f'

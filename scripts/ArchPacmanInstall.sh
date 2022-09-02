@@ -12,7 +12,7 @@ pacman -S --noconfirm xorg-server xorg xorg-xinit xorg-xsetroot
 # Install fonts
 pacman -S --noconfirm nerd-fonts ttf-dejavu wqy-zenhei noto-fonts-cjk noto-fonts-emoji noto-fonts-extra adobe-source-code-pro-fonts
 # Install arch-bspwm
-pacman -S --noconfirm bspwm sxhkd polybar alacritty rofi feh picom neofetch
+pacman -S --noconfirm bspwm sxhkd polybar alacritty rofi feh picom neofetch sddm
 # Install language
 pacman -S --noconfirm go cargo nodejs yarn lua
 # Install software

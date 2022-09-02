@@ -9,9 +9,10 @@ if [ -d $HOME/Applications ];then
   mkdir $HOME/Applications
 fi
 git clone https://skywind3000/z.lua.git $HOME/Applications/
-### fonts
-cp $HOME/Downloads/fonts/*.ttf /usr/share/fonts/TTF/
-fc-cache -vf
+### omf
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+### JetBrainsMono
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
 ## config
 ### use bash shell
@@ -21,3 +22,7 @@ source $HOME/.bashrc
 git clone --bare https://github.com/Sonder9927/dotfiles-bspwm.git $HOME/.dotfiles
 ### checkout
 dotfiles checkout
+
+### My fonts
+cp $HOME/Downloads/fonts/*.ttf /usr/share/fonts/TTF/
+fc-cache -vf

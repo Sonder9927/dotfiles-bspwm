@@ -20,7 +20,8 @@ source $HOME/.bashrc
 git clone --bare https://github.com/Sonder9927/dotfiles-bspwm.git $HOME/.dotfiles
 
 ### My fonts
-cp $HOME/Downloads/fonts/*.ttf /usr/share/fonts/TTF/
+cp -r $HOME/Downloads/fonts/Aa /usr/local/share/fonts/
+cp -r $HOME/Downloads/fonts/OperatorMono /usr/local/share/fonts/
 fc-cache -vf
 ### omf
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish < exit

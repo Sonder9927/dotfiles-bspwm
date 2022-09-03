@@ -6,7 +6,8 @@
 super + Return
 	LIBGL_ALWAYS_SOFTWARE=1 alacritty
 alt + Return
-	LIBGL_ALWAYS_SOFTWARE=1 alacritty
+	alacritty
+	#LIBGL_ALWAYS_SOFTWARE=1 alacritty
 
 # program launcher
 super + d
@@ -57,7 +58,7 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
+alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
@@ -83,7 +84,7 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
+alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #

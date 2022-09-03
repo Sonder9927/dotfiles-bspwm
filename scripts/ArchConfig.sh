@@ -10,7 +10,8 @@ if [ -d $HOME/Applications ];then
 fi
 git clone https://github.com/skywind3000/z.lua.git $HOME/Applications/
 ### JetBrainsMono
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+yay -S --noconfirm nerd-fonts-git nerd-fonts-jetbrains-mono otf-operator-mono-nerd
 
 ## config
 ### use bash shell
@@ -19,12 +20,12 @@ echo ".dotfiles" >> $HOME/.gitignore
 source $HOME/.bashrc
 git clone --bare https://github.com/Sonder9927/dotfiles-bspwm.git $HOME/.dotfiles
 
-### My fonts
-cp -r $HOME/Downloads/fonts/Aa /usr/local/share/fonts/
-cp -r $HOME/Downloads/fonts/OperatorMono /usr/local/share/fonts/
-fc-cache -vf
 ### omf
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish < exit
 
 ### checkout
 dotfiles checkout
+
+### My fonts
+cp -r $HOME/Downloads/fonts/Aa /usr/local/share/fonts/
+fc-cache -vf

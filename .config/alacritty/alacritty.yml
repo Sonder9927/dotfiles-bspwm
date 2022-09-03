@@ -5,11 +5,18 @@ draw_bold_text_with_bright_colors: true
 
 window:
   dimensions:
-    columns: 160
+    columns: 150
     lines: 40
   padding:
     x: 2
   opacity: 0.8
+  decorations: full
+  startup_mode: Windowed
+  title: Alacritty
+  dynamic_title: true
+
+Scrolling:
+  history: 5000
 
 cursor:
   style:
@@ -21,74 +28,51 @@ font:
   size: 20
   normal:
     family: JetBrainsMono
-    style: Regular
+    style: Bold
   bold:
     family: JetBrainsMono
     style: Bold
   italic:
-    family: Operator Mono
-    style: Italic
+    family: Operator Mono Bold
+    style: Bold Italic
   bold_italic:
-    family: Operator Mono
+    family: Operator Mono Bold
     style: Bold Italic
 
 colors:
   primary:
     background: '#2e3440'
-    # foreround: '#d8dee9'
-    # background: '0x272822'
     foreround: '0xf1ebeb'
-  normal:
-    black: '0x18262f'
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  bright:
+    black: '0x667581'
     red: '0xef5253'
-    green: '0x7cc844'  # will change [I] and (rose) colors
+    green: '0x7cc844'
     yellow: '0xe4b51c'
+    magenta: '0xa363d5'
+    cyan: '0x52cbb0'
+    white: '0xf5f7fa'
 
 selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-
-  # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
 
-
-# Live config reload (changes require restart)
 live_config_reload: true 
 
-# Shell
 shell:
   program: /usr/bin/fish
   args:
     - --login
 
 mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
   double_click: { threshold: 300 }
-  #triple_click: { threshold: 300 }
 
-  # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
 
-# Mouse bindings
 mouse_bindings:
-
   - { mouse: Right, action: Paste }
 
-# Key bindings
 key_bindings:
   - { key: P,      mods: Alt,                    action: Paste          }
-  #- { key: L,         mods: Control,                    action: ClearLogNotice }
-  #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
-  - { key: PageUp,   mods: Shift,           action: ScrollPageUp,  }
-  - { key: PageDown, mods: Shift,           action: ScrollPageDown }
-  - { key: Home,     mods: Shift,           action: ScrollToTop,   }
-  - { key: Up,       mods: Shift,           action: IncreaseFontSize }
-  - { key: Down,     mods: Shift,           action: DecreaseFontSize }
-  - { key: End,      mods: Shift,           action: ScrollToBottom }
-  - { key: F11,                             action: ToggleFullscreen }
-  - { key: F11,      mods: Shift,           action: Quit }

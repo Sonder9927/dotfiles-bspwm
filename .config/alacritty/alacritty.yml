@@ -26,11 +26,11 @@ font:
     family: JetBrainsMono
     style: Bold
   italic:
-    family: Operator Mono Book
+    family: Operator Mono
     style: Italic
   bold_italic:
     family: Operator Mono
-    style: Italic
+    style: Bold Italic
 
 colors:
   primary:

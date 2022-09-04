@@ -14,6 +14,4 @@ yay -S fcitx5-pinyin-moegirl fcitx5-material-color
 
 yay -S sddm-theme-aerial-git
 
-sudo mv aerial-sddm-theme /usr/share/sddm/themes/
-
 yay -Yc

@@ -27,10 +27,10 @@ cursor:
 font:
   size: 20
   normal:
-    family: JetBrainsMono
+    family: JetBrainsMono Nerd Font
     style: Bold
   bold:
-    family: JetBrainsMono
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
     family: Operator Mono Bold

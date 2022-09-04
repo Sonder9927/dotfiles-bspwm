@@ -13,21 +13,14 @@ git clone https://github.com/skywind3000/z.lua.git $HOME/Applications/
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 yay -S --noconfirm nerd-fonts-git  # nerd-fonts-jetbrains-mono is included in nerd-fonts-git which is very large but still need to install otf-operator-mono-nerd
 
-### Install fnm
-curl -fsSL https://fnm.vercel.app/install | bash
+### omf
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 ## config
 ### use bash shell
-echo 'alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"' >> $HOME/.bashrc
-echo ".dotfiles" >> $HOME/.gitignore
-source $HOME/.bashrc
+echo ".dotfiles-bspwm" > $HOME/.gitignore
 git clone --bare https://github.com/Sonder9927/dotfiles-bspwm.git $HOME/.dotfiles-bspwm
-
-### omf
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish < exit
-
-### checkout
-dotfiles checkout
+git --git-dir=$HOME/.dotfiles-bspwm --work-tree=$HOME checkout -f
 
 ### My fonts
 cp -r $HOME/Downloads/fonts/Aa /usr/local/share/fonts/

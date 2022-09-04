@@ -16,7 +16,7 @@ pacman -S --noconfirm bspwm sxhkd polybar alacritty rofi feh neofetch
 # Install language
 pacman -S --noconfirm go cargo nodejs yarn lua cmake
 # Install software
-pacman -S --noconfirm chromium firefox exa eva bat git-delta fd wget unzip rsync dunst
+pacman -S --noconfirm chromium firefox fzf exa eva bat git-delta fd wget unzip rsync dunst
 # Install vm tools
 ## for orcale
 pacman -S --noconfirm virtualbox virtualbox-host-dkms virtualbox-guest-iso virtualbox-guest-utils

@@ -5,13 +5,13 @@ set -e
 # config by my dotfiles-bspwm on Github
 ## pre-config
 ### z.lua
-if [ -d $HOME/Applications ];then
+if [ ! -d $HOME/Applications ];then
   mkdir $HOME/Applications
 fi
 git clone https://github.com/skywind3000/z.lua.git $HOME/Applications/
 ### JetBrainsMono
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-yay -S --noconfirm nerd-fonts-git nerd-fonts-jetbrains-mono otf-operator-mono-nerd
+yay -S --noconfirm nerd-fonts-git nerd-fonts-jetbrains-mono  # otf-operator-mono-nerd
 
 ### Install fnm
 curl -fsSL https://fnm.vercel.app/install | bash

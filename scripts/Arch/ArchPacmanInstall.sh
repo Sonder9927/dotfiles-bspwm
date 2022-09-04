@@ -6,7 +6,7 @@ set -e
 pacman -Syyu
 
 # Install fish and nvim
-pacman -S --noconfirm fish neovim vim
+pacman -S --noconfirm fish neovim vim openssh
 # Install xorg
 pacman -S --noconfirm xorg-server xorg xorg-xinit xorg-xsetroot xorg-xprop
 # Install fonts

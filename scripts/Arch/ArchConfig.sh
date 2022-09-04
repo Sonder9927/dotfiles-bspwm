@@ -12,6 +12,8 @@ git clone https://github.com/skywind3000/z.lua.git $HOME/Applications/
 ### JetBrainsMono
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 yay -S --noconfirm nerd-fonts-git  # nerd-fonts-jetbrains-mono is included in nerd-fonts-git which is very large but still need to install otf-operator-mono-nerd
+## lunarvim should use bash
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
 
 ### omf
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
@@ -20,6 +22,7 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 ### use bash shell
 echo ".dotfiles-bspwm" > $HOME/.gitignore
 git clone --bare https://github.com/Sonder9927/dotfiles-bspwm.git $HOME/.dotfiles-bspwm
+### checkout
 git --git-dir=$HOME/.dotfiles-bspwm --work-tree=$HOME checkout -f
 
 ### My fonts

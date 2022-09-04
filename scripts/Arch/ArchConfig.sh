@@ -13,6 +13,9 @@ git clone https://github.com/skywind3000/z.lua.git $HOME/Applications/
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 yay -S --noconfirm nerd-fonts-git nerd-fonts-jetbrains-mono otf-operator-mono-nerd
 
+### Install fnm
+curl -fsSL https://fnm.vercel.app/install | bash
+
 ## config
 ### use bash shell
 echo 'alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"' >> $HOME/.bashrc

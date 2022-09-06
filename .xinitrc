@@ -1,3 +1,2 @@
-exec sxhkd &
-bash $HOME/scripts/xmod.sh
 exec bspwm
+bash $HOME/scripts/xmod.sh

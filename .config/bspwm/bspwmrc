@@ -2,7 +2,6 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dunst > /dev/null || dunst &
-pgrep -x fcitx5 > /dev/null || fcitx5 &
 
 bash $HOME/scripts/wallpaper.sh &
 ~/.config/polybar/launch.sh

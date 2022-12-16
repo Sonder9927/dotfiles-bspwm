@@ -1,2 +1,2 @@
 exec bspwm
-bash $HOME/scripts/xmod.sh
+bash /home/merak/scripts/xmod.sh

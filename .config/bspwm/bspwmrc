@@ -4,7 +4,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dunst > /dev/null || dunst &
 
 bash $HOME/scripts/wallpaper.sh &
-~/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh
 picom -b
 
 bspc monitor -d I II III IV V

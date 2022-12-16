@@ -6,20 +6,19 @@
 super + Return
 	LIBGL_ALWAYS_SOFTWARE=1 alacritty
 alt + Return
-  notify-send -t 1000 "Open..." "Terminal"; \
+  # notify-send -t 1000 "Open..." "Terminal"; \
 	alacritty
 	#LIBGL_ALWAYS_SOFTWARE=1 alacritty  # for vb
-alt + f
-  notify-send -t 1000 "Open..." "Thunar"; \
-	thunar
 
-# program launcher
-super + d
-	rofi -show drun
+# # program launcher
+alt + {_,shift + }f
+	{rofi -show drun,thunar}
+alt + {_,shift + }b
+	{firefox,chromium}
 
 # make sxhkd reload its configuration files:
 super + Escape
-  notify-send "Reload Sxhkd..."; \
+  # notify-send "Reload Sxhkd..."; \
 	pkill -USR1 -x sxhkd
 
 #
@@ -30,7 +29,7 @@ super + Escape
 super + alt + q
 	bspc quit
 super + alt + r
-  notify-send "Reload Bspwm..."; \
+  # notify-send "Reload Bspwm..."; \
 	bspc wm -r
 
 # close and kill

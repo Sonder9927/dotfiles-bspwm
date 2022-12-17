@@ -18,9 +18,9 @@ alt + f
 ### browser
 # alt + {_,shift + }b
 # 	{firefox,chromium}
-### i3lock
-ctrl + super + alt + l
-  i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
+# ### i3lock
+# ctrl + super + alt + l
+#   i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
 
 ## run scripts
 ### loadkeys

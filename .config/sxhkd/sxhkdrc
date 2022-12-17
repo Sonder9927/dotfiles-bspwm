@@ -6,19 +6,27 @@
 super + Return
 	LIBGL_ALWAYS_SOFTWARE=1 alacritty
 alt + Return
-  # notify-send -t 1000 "Open..." "Terminal"; \
-	alacritty
-	#LIBGL_ALWAYS_SOFTWARE=1 alacritty  # for vb
+	LIBGL_ALWAYS_SOFTWARE=1 alacritty
+	# alacritty
 
-# # program launcher
-alt + {_,shift + }f
-	{rofi -show drun,thunar}
+## program launcher
+### rofi
+alt + f
+  notify-send "Starting rofi..."; \
+	rofi -show drun
+### thunar
+### browser
 alt + {_,shift + }b
 	{firefox,chromium}
 
+## run scripts
+ctrl + super + alt + k
+  bash $HOME/scripts/xmod.sh; \
+  notify-send -t 1000 "Load keymap configuration..."
+
 # make sxhkd reload its configuration files:
 super + Escape
-  # notify-send "Reload Sxhkd..."; \
+  notify-send "Reload Sxhkd..."; \
 	pkill -USR1 -x sxhkd
 
 #

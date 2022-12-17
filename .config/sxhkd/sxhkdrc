@@ -16,13 +16,18 @@ alt + f
 	rofi -show drun
 ### thunar
 ### browser
-alt + {_,shift + }b
-	{firefox,chromium}
+# alt + {_,shift + }b
+# 	{firefox,chromium}
+### i3lock
+ctrl + super + alt + l
+  i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
 
 ## run scripts
+### loadkeys
 ctrl + super + alt + k
   bash $HOME/scripts/xmod.sh; \
   notify-send -t 1000 "Load keymap configuration..."
+### blurlock
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -33,7 +33,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- -- Change theme settings
 -- lvim.colorscheme = "lunar"
 
--- After changing plugin config exit and reopen LunarVim, Run :PackerSync
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
@@ -92,22 +91,12 @@ lvim.builtin.treesitter.auto_install = true
 -- }
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
-lvim.plugins = {
-    {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
-    { "glepnir/lspsaga.nvim",
-      branch="main",
-      config = function()
-        local saga = require("lspsaga")
-
-        saga.init_lsp_saga({
-
-        })
-      end,
-    },
-}
+-- lvim.plugins = {
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
 
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
 -- vim.api.nvim_create_autocmd("FileType", {

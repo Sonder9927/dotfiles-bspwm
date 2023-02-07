@@ -14,19 +14,31 @@ alt + Return
 alt + f
   notify-send "Starting rofi..."; \
 	rofi -show drun
-### thunar
+## thunar
+alt + shift + f
+  notify-send "Starting thunar..."; \
+  thunar
+## translate-shell
+alt + m
+  notify-send "Starting calculate-tool: eva..."; \
+  alacritty --class math -e eva
+## translate-shell
+alt + t
+  notify-send "Starting translate-shell..."; \
+  alacritty --class trans -e {{trans :zh -e bing -brief -shell}}
+
 ### browser
 # alt + {_,shift + }b
 # 	{firefox,chromium}
-# ### i3lock
-# ctrl + super + alt + l
-#   i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
 
 ## run scripts
 ### loadkeys
 ctrl + super + alt + k
   bash $HOME/scripts/xmod.sh; \
   notify-send -t 1000 "Load keymap configuration..."
+### i3lock
+ctrl + super + alt + l
+  i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
 ### blurlock
 
 # make sxhkd reload its configuration files:

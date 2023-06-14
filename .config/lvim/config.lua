@@ -2,7 +2,6 @@
  THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
  `lvim` is the global options object
 ]]
-
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -72,15 +71,16 @@ lvim.builtin.treesitter.auto_install = true
 -- end
 
 -- -- linters and formatters <https://www.lunarvim.org/docs/languages#lintingformatting>
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "stylua" },
---   {
---     command = "prettier",
---     extra_args = { "--print-width", "100" },
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "black" },
+  --   { command = "stylua" },
+  --   {
+  --     command = "prettier",
+  --     extra_args = { "--print-width", "100" },
+  --     filetypes = { "typescript", "typescriptreact" },
+  --   },
+}
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
 --   { command = "flake8", filetypes = { "python" } },

@@ -72,7 +72,11 @@ mouse:
   hide_when_typing: true
 
 mouse_bindings:
-  - { mouse: Right, action: Paste }
+  - { mouse: Right,                              action: Paste        }
 
 key_bindings:
-  - { key: P,      mods: Alt,                    action: Paste          }
+  - { key: P,       mods: Alt,                   action: Paste        }
+
+  # vi mode
+  - { key: Space,   mods: Alt, mode: ~Search,    action: ToggleViMode }
+ 

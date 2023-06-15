@@ -1,0 +1,22 @@
+{
+  "languageserver": {
+    "sourcery": {
+      "command": "/home/merak/Applications/miniconda3/envs/tpwt/bin/sourcery",
+      "args": [
+        "lsp"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "initializationOptions": {
+        "extension_version": "coc.vim",
+        "editor_version": "vim"
+      },
+      "settings": {
+        "sourcery": {
+          "metricsEnabled": true
+        }
+      }
+    }
+  }
+}

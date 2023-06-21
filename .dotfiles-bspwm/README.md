@@ -12,9 +12,11 @@ And this time I add new content about polybar.
 ## Addition
 ### Lvim
 
-Use `black` as formatter and `flake8` as linter.
+Use `black` as formatter and `flake8` as linter
+and write python scripts with the extension `coc-pyright`.
 
-Deprecated `pyright`, so need to change file `~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua`:
+If you hope don't install `pyright` automaticly,
+change file `~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua`:
 
 ```lua
 

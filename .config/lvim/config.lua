@@ -11,19 +11,27 @@ lvim.builtin.which_key.mappings["a"] = {
 	n = { "<plug>(coc-diagnostic-next)", "next" },
 }
 
--- -- linters and formatters <https://www.lunarvim.org/docs/languages#lintingformatting>
+-- linters and formatters <https://www.lunarvim.org/docs/languages#lintingformatting>
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "black" },
 	{ command = "stylua" },
+	{ command = "beautysh" },
+	{ command = "fprettify", filetypes = { "fortran" }, args = { "--silent" } },
+	-- {
+	-- 	command = "just",
+	-- 	filetypes = { "justfile" },
+	-- 	args = { "--fmt", "--unstable", "-f", "$FILENAME" },
+	-- },
 })
+
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{ command = "flake8", filetypes = { "python" } },
-	{
-		command = "shellcheck",
-		args = { "--severity", "warning" },
-	},
+	-- {
+	-- 	command = "shellcheck",
+	-- 	args = { "--severity", "warning" },
+	-- },
 })
 
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>

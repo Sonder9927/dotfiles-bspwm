@@ -14,9 +14,9 @@ pacman -S --noconfirm ttf-dejavu wqy-zenhei noto-fonts-cjk noto-fonts-emoji noto
 # Install arch-bspwm
 pacman -S --noconfirm bspwm sxhkd polybar alacritty rofi feh neofetch
 # Install language
-pacman -S --noconfirm go nodejs yarn lua cmake rust-analyzer
+pacman -S --noconfirm go nodejs yarn lua cmake rust-analyzer flake black
 # Install software
-pacman -S --noconfirm chromium firefox fzf exa eva bat git-delta ranger ueberzug fd lf wget unzip rsync dunst notify-osd
+pacman -S --noconfirm chromium firefox fzf exa eva bat git-delta ranger ueberzug fd lf wget unzip rsync dunst notify-osd thefuck
 # Install vm tools
 ## for orcale
 pacman -S --noconfirm virtualbox virtualbox-host-dkms virtualbox-guest-iso virtualbox-guest-utils

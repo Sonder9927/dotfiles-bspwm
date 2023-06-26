@@ -16,6 +16,7 @@ local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "black" },
 	{ command = "stylua" },
+	{ command = "deno_fmt" },
 	{ command = "beautysh" },
 	{ command = "fprettify", filetypes = { "fortran" }, args = { "--silent" } },
 	-- {

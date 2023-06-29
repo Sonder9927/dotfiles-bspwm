@@ -2,6 +2,8 @@
 
 ---
 
+@[toc](PREVIEW)
+
 ## Info
 
 [Look to my dotfiles](https://github.com/Sonder9927/.dotfiles).
@@ -14,31 +16,43 @@ And this time I add new content about polybar.
 
 ### Lvim
 
-- language ide:
+- language *[ide]:IDE :
 
 see [starter.lvim](https://github.com/LunarVim/starter.lvim)
 
 - useful keymaps:
 
 - vim cmd
-  - `<C-i>` to go forward
-  - `<C-o>` and `''` to go back
-  - `:sp` split panel
-  - `<C-j/k>` jump panel
+
+  | keymap    | cmd                 |
+  | --------- | ------------------- |
+  | `<C-i>`   | to go forward       |
+  | `<C-o>`   | and `''` to go back |
+  | `:sp`     | split panel         |
+  | `<C-j/k>` | jump panel          |
 
 - leader cmd
   - python
-    - `as` sourcery show
-    - `af` sourcery fix
-    - `lc` switch env
+
+  | keymap | cmd           |
+  | ------ | ------------- |
+  | `as`   | sourcery show |
+  | `af`   | sourcery fix  |
+  | `lc`   | switch env    |
 
   - rust
-    - `rr` cargo runnables
-    - `rc` open `Cargo.toml`
-    - `ry` open creates repository
 
-- self cmd
-  - `lp` run python code
+  | keymap | cmd                     |
+  | ------ | ----------------------- |
+  | `rr`   | cargo runnables         |
+  | `rc`   | open `Cargo.toml`       |
+  | `ry`   | open creates repository |
+
+  - self cmd
+
+  | keymap | cmd             |
+  | ------ | --------------- |
+  | `lp`   | run python code |
 
 - details:
 

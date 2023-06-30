@@ -1,8 +1,11 @@
 -- using fish may be slow for lvim
 -- vim.opt.shell = "/bin/sh"
 
--- rust keymap
+-- reset default
+lvim.builtin.which_key.mappings["bc"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>Telescope commands<cr>", "Commands" }
 
+-- rust keymap
 lvim.builtin.which_key.mappings["r"] = {
 	name = "Rust",
 	r = { "<cmd>RustRunnables<Cr>", "Runnables" },

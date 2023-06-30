@@ -25,6 +25,7 @@ lvim.builtin.which_key.mappings["r"] = {
 	i = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "[crates] show info" },
 	f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
 	D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
+	U = { "<cmd>lua require'crates'.upgrade_all_crates()<cr>", "[crates] update crates" },
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -76,15 +77,6 @@ lvim.builtin.which_key.mappings["dF"] = {
 }
 lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Test Summary" }
 
--- automatically install python syntax highlighting
--- lvim.builtin.treesitter.highlight.enable = true
--- lvim.builtin.treesitter.ensure_installed = {
--- 	"python",
--- 	"lua",
--- 	"rust",
--- 	"toml",
--- }
-
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 -- linters and formatters <https://www.lunarvim.org/docs/languages#lintingformatting>
 -- setup formatting
@@ -135,9 +127,10 @@ lvim.plugins = {
 	"nvim-neotest/neotest",
 	"nvim-neotest/neotest-python",
 	-- rust
-	"simrat39/rust-tools.nvim",
+	{ "simrat39/rust-tools.nvim", ft = "rust" },
 	{
 		"saecki/crates.nvim",
+		ft = { "rust", "toml" },
 		version = "v0.3.0",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -165,9 +158,9 @@ lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 local codelldb_path = mason_path .. "bin/codelldb"
 local liblldb_path = mason_path .. "packages/codelldb/extension/lldb/lib/liblldb"
--- local this_os = vim.loop.os_uname().sysname
 
 -- -- The path in windows is different
+-- local this_os = vim.loop.os_uname().sysname
 -- if this_os:find "Windows" then
 --   codelldb_path = mason_path .. "packages\\codelldb\\extension\\adapter\\codelldb.exe"
 --   liblldb_path = mason_path .. "packages\\codelldb\\extension\\lldb\\bin\\liblldb.dll"
@@ -175,6 +168,7 @@ local liblldb_path = mason_path .. "packages/codelldb/extension/lldb/lib/liblldb
 --   -- The liblldb extension is .so for linux and .dylib for macOS
 --   liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
 -- end
+
 pcall(function()
 	require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
 	require("rust-tools").setup({
@@ -222,6 +216,9 @@ pcall(function()
 			capabilities = require("lvim.lsp").common_capabilities(),
 			settings = {
 				["rust-analyzer"] = {
+					-- cargo = {
+					-- 	allFeatures = true,
+					-- },
 					lens = {
 						enable = true,
 					},

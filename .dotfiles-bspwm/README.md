@@ -30,6 +30,7 @@ see [starter.lvim](https://github.com/LunarVim/starter.lvim)
     | `<C-j/k>` | jump panel          |
 
   - leader cmd
+
     - python
 
       | keymap | cmd           |
@@ -52,14 +53,17 @@ see [starter.lvim](https://github.com/LunarVim/starter.lvim)
       | ------ | --------------- |
       | `lp`   | run python code |
 
-- details:
+---
 
-Use `black` as formatter and `flake8` as linter and write python scripts with
-the extension `coc-pyright`.
+details:
 
-If you hope don't install `pyright` automaticly, change
-`lvim.installer.setup({automatic_installation={exclude={"pyright"}}})`, which in
-file `~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua`:
+Use [`black`](https://black.readthedocs.io/en/stable) as formatter
+and [`flake8`](https://flake8.pycqa.org/en/latest/index.html) as linter
+and write python scripts with the extension `coc-pyright`.
+
+If you hope don't install `pyright` automaticly,
+change `lvim.installer.setup({automatic_installation={exclude={"pyright"}}})`,
+which in file `~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua`:
 
 ```lua
   ...

@@ -44,7 +44,7 @@ lvim.builtin.which_key.mappings["lc"] = {
 }
 -- run python code
 lvim.builtin.which_key.mappings["lp"] = {
-	":w<cr>:sp |terminal python %<cr>",
+	"<cmd>w<cr><cmd>sp | terminal python %<cr>",
 	"Run Python",
 }
 -- Trouble
@@ -82,14 +82,15 @@ lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.t
 -- 	"toml",
 -- }
 
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 -- linters and formatters <https://www.lunarvim.org/docs/languages#lintingformatting>
 -- setup formatting
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
-	{ command = "black" },
+	{ command = "black", args = { "--line-length=79" } },
 	{ command = "stylua", filetypes = { "lua" } },
-	{ command = "deno_fmt" },
+	-- { command = "deno_fmt" },
+	{ command = "prettier" },
 	{ command = "taplo", filetypes = { "toml" } },
 	{ command = "rustfmt", filetypes = { "rust" } },
 	{ command = "beautysh" },
@@ -104,7 +105,7 @@ formatters.setup({
 -- setup linting
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	{ command = "flake8", filetypes = { "python" }, args = { "--ignore=E203" } },
+	{ command = "flake8", filetypes = { "python" } },
 	-- {
 	-- 	command = "shellcheck",
 	-- 	args = { "--severity", "warning" },

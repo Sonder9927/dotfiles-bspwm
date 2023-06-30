@@ -100,9 +100,9 @@ local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "black", args = { "--line-length=79" } },
 	{ command = "stylua", filetypes = { "lua" } },
-	-- { command = "deno_fmt" },
-	{ command = "prettier" },
+	{ command = "prettierd", extra_filetypes = { "toml" } },
 	{ command = "taplo", filetypes = { "toml" } },
+	-- { command = "deno_fmt" },
 	{ command = "rustfmt", filetypes = { "rust" } },
 	{ command = "beautysh" },
 	{ command = "fprettify", filetypes = { "fortran" }, args = { "--silent" } },

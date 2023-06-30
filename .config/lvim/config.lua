@@ -11,7 +11,7 @@ lvim.builtin.which_key.mappings["r"] = {
 	r = { "<cmd>RustRunnables<Cr>", "Runnables" },
 	t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
 	m = { "<cmd>RustExpandMacro<Cr>", "Expand Macro" },
-	c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
+	C = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
 	p = { "<cmd>RustParentModule<Cr>", "Parent Module" },
 	d = { "<cmd>RustDebuggables<Cr>", "Debuggables" },
 	v = { "<cmd>RustViewCrateGraph<Cr>", "View Crate Graph" },
@@ -20,12 +20,28 @@ lvim.builtin.which_key.mappings["r"] = {
 		"Reload Workspace",
 	},
 	o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
-	y = { "<cmd>lua require'crates'.open_repository()<cr>", "[crates] open repository" },
-	P = { "<cmd>lua require'crates'.show_popup()<cr>", "[crates] show popup" },
-	i = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "[crates] show info" },
-	f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
-	D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
-	U = { "<cmd>lua require'crates'.upgrade_all_crates()<cr>", "[crates] update crates" },
+}
+lvim.builtin.which_key.mappings["rc"] = {
+	name = "[crates]",
+	c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
+	t = { "<cmd>lua require'crates'.toggle()<cr>", "toggle" },
+	r = { "<cmd>lua require'crates'.reload()<cr>", "reload" },
+
+	P = { "<cmd>lua require'crates'.show_popup()<cr>", "[crate] show popup" },
+	i = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "[crate] show info" },
+	v = { "<cmd>lua require'crates'.show_versions_popup()<cr>", "[crate] show version" },
+	f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crate] show features" },
+	d = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crate] show dependencies" },
+
+	u = { "<cmd>lua require'crates'.updata_crate()<cr>", "update" },
+	a = { "<cmd>lua require'crates'.updata_all_crate()<cr>", "update all" },
+	U = { "<cmd>lua require'crates'.upgrade_crate()<cr>", "upgrade" },
+	A = { "<cmd>lua require'crates'.upgrade_all_crate()<cr>", "upgrade all" },
+
+	H = { "<cmd>lua require'crates'.open_homepage()<cr>", "[crate] open homepage" },
+	R = { "<cmd>lua require'crates'.open_repository()<cr>", "[crate] open repository" },
+	D = { "<cmd>lua require'crates'.open_documentation()<cr>", "[crate] open document" },
+	C = { "<cmd>lua require'crates'.open_crates_io()<cr>", "open crates.io" },
 }
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
@@ -132,6 +148,7 @@ lvim.plugins = {
 		"saecki/crates.nvim",
 		ft = { "rust", "toml" },
 		version = "v0.3.0",
+		event = { "BufRead Cargo.toml" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("crates").setup({
@@ -145,6 +162,7 @@ lvim.plugins = {
 			})
 		end,
 	},
+	-- eye candy for the impatient
 	{
 		"j-hui/fidget.nvim",
 		config = function()

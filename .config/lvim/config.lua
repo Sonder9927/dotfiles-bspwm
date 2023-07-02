@@ -103,7 +103,6 @@ formatters.setup({
 	{ command = "prettierd", extra_filetypes = { "toml" } },
 	{ command = "taplo", filetypes = { "toml" } },
 	-- { command = "deno_fmt" },
-	{ command = "rustfmt", filetypes = { "rust" } },
 	{ command = "beautysh" },
 	{ command = "fprettify", filetypes = { "fortran" }, args = { "--silent" } },
 	-- {

@@ -125,6 +125,16 @@ linters.setup({
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 -- install plugins
 lvim.plugins = {
+	-- UI
+	-- "stevearc/dressing.nvim",
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
 	-- trouble
 	{
 		"folke/trouble.nvim",
@@ -137,7 +147,6 @@ lvim.plugins = {
 		build = "yarn install --frozen-lockfile",
 	},
 	"AckslD/swenv.nvim",
-	"stevearc/dressing.nvim",
 	"mfussenegger/nvim-dap-python",
 	"nvim-neotest/neotest",
 	"nvim-neotest/neotest-python",
@@ -287,3 +296,22 @@ require("neotest").setup({
 		}),
 	},
 })
+
+-- setup noice
+require("noice").setup({
+	lsp = {
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true,
+		},
+	},
+	presets = {
+		bottom_search = true,
+		command_palette = true,
+		long_message_to_split = true,
+		inc_rename = false,
+		lsp_doc_border = false,
+	},
+})
+require("telescope").load_extension("noice")

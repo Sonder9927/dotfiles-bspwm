@@ -18,6 +18,10 @@ And this time I add new content about polybar.
 
 see [starter.lvim](https://github.com/LunarVim/starter.lvim)
 
+- UI:
+    
+    [noice.nvim](https://github.com/folke/noice.nvim)
+
 - useful keymaps:
 
   - vim cmd

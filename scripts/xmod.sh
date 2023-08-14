@@ -20,4 +20,6 @@ xmodmap -e "keycode 46 = l L Right Right"
 xmodmap -e "keycode any = Tab" # set a keysym for xcape
 
 /home/merak/scripts/xcape/xcape -e "$spare_modifier=Tab"
-# However, this has sveral limitations: the key will not work as ordinart until it is relased, and in particular, it may act as a modifier unintentionaly if you type too fast.
+# However, this has sveral limitations:
+# the key will not work as ordinart until it is relased,
+# and in particular, it may act as a modifier unintentionaly if you type too fast.

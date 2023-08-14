@@ -18,10 +18,14 @@ alt + f
 alt + shift + f
   notify-send "Starting thunar..."; \
   thunar
-## translate-shell
-alt + m
+## math-shell
+super + m
   notify-send "Starting calculate-tool: eva..."; \
   alacritty --class math -e eva
+## math-shell
+alt + m
+  notify-send "Starting ghci for Haskell..."; \
+  haskell_i  # run code written in functions/haskell_i.fish
 ## translate-shell
 alt + t
   notify-send "Starting translate-shell..."; \

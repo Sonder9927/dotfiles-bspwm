@@ -9,7 +9,7 @@ window:
     lines: 40
   padding:
     x: 2
-  opacity: 0.8
+  opacity: 0.95
   decorations: full
   startup_mode: Windowed
   title: Alacritty

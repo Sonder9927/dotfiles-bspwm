@@ -1,7 +1,7 @@
 {
   "languageserver": {
     "sourcery": {
-      "command": "/home/merak/Applications/miniconda3/envs/rose/bin/sourcery",
+      "command": "/home/merak/.rye/shims/sourcery",
       "args": [
         "lsp"
       ],

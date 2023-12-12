@@ -14,6 +14,9 @@ alt + Return
 alt + f
   notify-send "Starting rofi..."; \
 	rofi -show drun
+### flameshot
+alt + a
+	flameshot gui
 ## thunar
 alt + shift + f
   notify-send "Starting thunar..."; \

@@ -1,6 +1,19 @@
 -- using fish may be slow for lvim
 -- vim.opt.shell = "/bin/sh"
 
+-- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
+-- add your own keymapping
+-- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["a"] = {
+	name = "actions",
+	a = { "<plug>(coc-codeaction-cursor)", "codeaction-cursor" },
+	f = { "<plug>(coc-fix-current)", "fix" },
+	s = { ":call CocAction('doHover')<cr>", "doHover" },
+	l = { ":CocDiagnostics<cr>", "diagnostics" },
+	L = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "list workspaces" },
+	p = { "<plug>(coc-diagnostic-prev)", "prev" },
+	n = { "<plug>(coc-diagnostic-next)", "next" },
+}
 -- reset default
 lvim.builtin.which_key.mappings["bc"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>Telescope commands<cr>", "Commands" }
@@ -44,29 +57,14 @@ lvim.builtin.which_key.mappings["rc"] = {
 	C = { "<cmd>lua require'crates'.open_crates_io()<cr>", "open crates.io" },
 }
 
--- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
--- add your own keymapping
--- Use which-key to add extra bindings with the leader-key prefix
--- Sourcery keymap
-lvim.builtin.which_key.mappings["a"] = {
-	name = "Sourcery",
-	a = { "<plug>(coc-codeaction-cursor)", "codeaction-cursor" },
-	f = { "<plug>(coc-fix-current)", "fix" },
-	s = { ":call CocAction('doHover')<cr>", "doHover" },
-	l = { ":CocDiagnostics<cr>", "diagnostics" },
-	p = { "<plug>(coc-diagnostic-prev)", "prev" },
-	n = { "<plug>(coc-diagnostic-next)", "next" },
-}
+-- -- additional lsp cmd
+lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "hover" }
+lvim.builtin.which_key.mappings["lH"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "signature help" }
 -- swap conda env keymap
-lvim.builtin.which_key.mappings["lc"] = {
-	"<cmd>lua require('swenv.api').pick_venv()<cr>",
-	"Choose Env",
-}
+lvim.builtin.which_key.mappings["lc"] = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" }
 -- run python code
-lvim.builtin.which_key.mappings["lp"] = {
-	"<cmd>w<cr><cmd>sp | terminal python %<cr>",
-	"Run Python",
-}
+lvim.builtin.which_key.mappings["lp"] = { "<cmd>w<cr><cmd>sp | terminal python %<cr>", "Run Python" }
+
 -- Trouble
 lvim.builtin.which_key.mappings["t"] = {
 	name = "Trouble",
@@ -93,14 +91,43 @@ lvim.builtin.which_key.mappings["dF"] = {
 }
 lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Test Summary" }
 
+-- lsp
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 -- linters and formatters <https://www.lunarvim.org/docs/languages#lintingformatting>
+-- See: https://github.com/neovim/nvim-lspconfig/tree/54eb2a070a4f389b1be0f98070f81d23e2b1a715#suggested-configuration
+
+-- ruff_lsp
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- Mappings.
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	vim.keymap.set("n", "<space>lf", function()
+		vim.lsp.buf.format({ async = true })
+	end, bufopts)
+
+	client.server_capabilities.hoverProvider = false
+end
+
+-- Configure `ruff-lsp`.
+-- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
+-- For the default config, along with instructions on how to customize the settings
+require("lspconfig").ruff_lsp.setup({
+	on_attach = on_attach,
+	init_options = {
+		settings = {
+			-- Any extra CLI arguments for `ruff` go here.
+			args = {},
+		},
+	},
+})
 -- setup formatting
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
-	{ command = "black", args = { "--line-length=79" } },
+	-- { command = "ruff", filetypes = { "python" }, args = { "--line-length=79" } },
 	{ command = "stylua", filetypes = { "lua" } },
-	{ command = "prettierd", extra_filetypes = { "toml" } },
+	-- { command = "prettierd", extra_filetypes = { "toml" } },
 	{ command = "taplo", filetypes = { "toml" } },
 	-- { command = "deno_fmt" },
 	{ command = "beautysh" },
@@ -115,7 +142,7 @@ formatters.setup({
 -- setup linting
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	{ command = "flake8", filetypes = { "python" } },
+	-- { command = "ruff", filetypes = { "python" } },
 	-- {
 	-- 	command = "shellcheck",
 	-- 	args = { "--severity", "warning" },

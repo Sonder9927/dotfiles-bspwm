@@ -1,11 +1,47 @@
-# dotfiles
+# dotfiles-zsh
 
-## 介绍
+## 安装
 
-配置文件的备份仓库。
+```sh
+# zshell
+sudo apt-get install zsh
+chsh -s /bin/zsh
+# ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-切换到对应分支查看详细说明，主要分支说明：
+# fzf
+sudo apt-get autoremove fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
-- master: 主分支，仓库介绍。
-- arch: arch 系统配置，分为 bspwm 和 i3 管理，目前使用的是 bspwm。
-- zsh: 一个简单的 zsh 终端配置。
+# plugins
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# zshrc
+mv .zshrc .oldzshrc
+mv dotfiles/.zshrc .zshrc
+```
+
+## 注意
+
+1. 需要重启终端。
+2. 安装 fzf-tab 需要先更新最新版本的 fzf，插件加载位置要在 `compinit` 之后，在
+`zsh-autosuggestions` 和
+`fast-syntax-highlighting` 之前。
+
+## 工具
+
+ `.zshrc` 中有额外下载的工具，没下载就取消 `alias` 别名。
+ 可以选择性安装：
+
+- z.lua
+- exa
+- lvim
+- batcat
+- ranger
+- fd
+- lf
+- rg
+- thefuck

@@ -1,89 +1,12 @@
-# Dotfiles for bspwm+sxhkd in ArchLinux
+# Dotfiles for zshell
 
 ---
 
-## Info
+## usage
 
-[Look to my dotfiles](https://github.com/Sonder9927/.dotfiles).
-
-This version is for my new ArchLinux which use bspwm+sxhkd.
-
-And this time I add new content about polybar.
-
-## Addition
-
-### Lvim
-
-- language ide:
-
-see [starter.lvim](https://github.com/LunarVim/starter.lvim)
-
-- UI:
-    
-    [noice.nvim](https://github.com/folke/noice.nvim)
-
-- useful keymaps:
-
-  - vim cmd
-
-    | keymap    | cmd                 |
-    | --------- | ------------------- |
-    | `<C-i>`   | to go forward       |
-    | `<C-o>`   | and `''` to go back |
-    | `:sp`     | split panel         |
-    | `<C-j/k>` | jump panel          |
-
-  - leader cmd
-
-    - python
-
-      | keymap | cmd           |
-      | ------ | ------------- |
-      | `as`   | sourcery show |
-      | `af`   | sourcery fix  |
-      | `lc`   | switch env    |
-
-    - rust
-
-      | keymap | cmd                     |
-      | ------ | ----------------------- |
-      | `rr`   | cargo runnables         |
-      | `rc`   | open `Cargo.toml`       |
-      | `ry`   | open creates repository |
-
-    - self cmd
-
-      | keymap | cmd             |
-      | ------ | --------------- |
-      | `lp`   | run python code |
-
----
-
-details:
-
-Use [`black`](https://black.readthedocs.io/en/stable) as formatter
-and [`flake8`](https://flake8.pycqa.org/en/latest/index.html) as linter
-and write python scripts with the extension `coc-pyright`.
-
-If you hope don't install `pyright` automaticly,
-change `lvim.installer.setup({automatic_installation={exclude={"pyright"}}})`,
-which in file `~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua`:
-
-```lua
-  ...
-
-  installer = {
-    setup = {
-      ensure_installed = {},
-      automatic_installation = {
-        exclude = {},
-      },
-    },
-  },
-
-  ...
+```sh
+echo ".dotfiles" >> $HOME/.gitignore
+git clone --bare https://github.com/Sonder9927/dotfiles-zsh.git .dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout -f
+dotfiles config --local status.showUntrackdFiles no
 ```
-
-## Wishes
-
-Write the scripts to install Arch and set my configuration.

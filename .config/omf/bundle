@@ -1,9 +1,0 @@
-package argu
-package autojump
-package bang-bang
-package expand
-package fzf
-package fzf-autojump
-package https://github.com/decors/fish-colored-man
-theme default
-theme toaster

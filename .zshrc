@@ -91,6 +91,13 @@ fi
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+# sac
+export SACHOME=/usr/local/sac
+export SACAUX=${SACHOME}/aux
+export PATH=${SACHOME}/bin:${PATH}
+export SAC_DISPLAY_COPYRIGHT=1
+export SAC_PPK_LARGE_CROSSHAIRS=1
+export SAC_USE_DATABASE=0
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

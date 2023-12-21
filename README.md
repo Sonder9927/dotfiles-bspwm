@@ -34,14 +34,11 @@ mv dotfiles/.zshrc .zshrc
 ## 工具
 
  `.zshrc` 中有额外下载的工具，没下载就取消 `alias` 别名。
- 可以选择性安装：
+ 可以选择性安装:
 
+- [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 - z.lua
-- exa
 - lvim
-- batcat
 - ranger
-- fd
 - lf
-- rg
 - thefuck

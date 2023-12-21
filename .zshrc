@@ -154,12 +154,18 @@ alias cd..='cd ..'
 alias pdw='pwd'
 
 ## Colorize the grep command output for ease of use (good for log files)##
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias grep='rg --color=auto'
 
 #readable output
-alias df='df -h'
+alias df='duf'
+
+# du-dust
+alias du='dust'
+
+# sed-sd
+# ping-gping
+# ps-procs
+alias ps="procs --tree"
 
 #free
 alias free="free -mt"

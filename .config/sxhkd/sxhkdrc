@@ -45,7 +45,9 @@ ctrl + super + alt + k
   notify-send -t 1000 "Load keymap configuration..."
 ### i3lock
 ctrl + super + alt + l
-  # i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
+  i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
+
+ctrl + super + alt + m
   i3lock -i $HOME/Pictures/Background/Lock_bg/mirana.png -t
 ### blurlock
 

@@ -48,7 +48,7 @@ ctrl + super + alt + l
   i3lock -i $HOME/Pictures/Background/Lock_bg/dog_lock.png -t
 
 ctrl + super + alt + m
-  i3lock -i $HOME/Pictures/Background/Lock_bg/mirana.png -t
+  i3lock -i $HOME/Pictures/Background/Lock_bg/mirana_lock.png -t
 ### blurlock
 
 # make sxhkd reload its configuration files:

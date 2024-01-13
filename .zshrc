@@ -66,6 +66,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+if [ -f $ZSH/oh-my-zsh.sh ]; then
+  source $ZSH/oh-my-zsh.sh
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -84,10 +88,6 @@ plugins=(
 )
 
 bindkey -v
-
-if [ -f $ZSH/oh-my-zsh.sh ]; then
-  source $ZSH/oh-my-zsh.sh
-fi
 
 # User configuration
 

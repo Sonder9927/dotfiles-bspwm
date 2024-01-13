@@ -8,7 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
+# ZSH_THEME="random"
+# use starship to config promt
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -243,21 +244,12 @@ alias zh="z -I -t ."
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/wuzx/disk_01/fire/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/wuzx/disk_01/fire/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/wuzx/disk_01/fire/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/wuzx/disk_01/fire/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# ...
 # <<< conda initialize <<<
 
 
 conda activate tpwt
 eval $(thefuck --alias)
+eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

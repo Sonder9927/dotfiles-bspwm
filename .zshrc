@@ -8,7 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
+# ZSH_THEME="random"
+ZSH_THEME="robbyrussell"
+# use starship to config promt
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,11 +75,9 @@ ZSH_THEME="random"
 plugins=(
   fzf-tab # must before zsh-au fasr-sy..
   git
+  sudo
   bundler
   dotenv
-  rake
-  rbenv
-  ruby
   zsh-autosuggestions
   fast-syntax-highlighting
 )
@@ -91,6 +91,13 @@ fi
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+# sac
+export SACHOME=/usr/local/sac
+export SACAUX=${SACHOME}/aux
+export PATH=${SACHOME}/bin:${PATH}
+export SAC_DISPLAY_COPYRIGHT=1
+export SAC_PPK_LARGE_CROSSHAIRS=1
+export SAC_USE_DATABASE=0
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -147,12 +154,18 @@ alias cd..='cd ..'
 alias pdw='pwd'
 
 ## Colorize the grep command output for ease of use (good for log files)##
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias grep='rg --color=auto'
 
 #readable output
-alias df='df -h'
+alias df='duf'
+
+# du-dust
+alias du='dust'
+
+# sed-sd
+# ping-gping
+# ps-procs
+alias ps="procs --tree"
 
 #free
 alias free="free -mt"
@@ -230,21 +243,20 @@ alias zh="z -I -t ."
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/wuzx/disk_01/fire/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('{$HOME}/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/wuzx/disk_01/fire/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/wuzx/disk_01/fire/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "{$HOME}/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "{$HOME}/Applications/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/wuzx/disk_01/fire/miniconda3/bin:$PATH"
+        export PATH="{$HOME}/Applications/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-conda activate tpwt
 eval $(thefuck --alias)
+eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

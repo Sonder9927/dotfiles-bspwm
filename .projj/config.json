@@ -1,0 +1,15 @@
+{
+  "base": [
+    "/home/merak/code"
+  ],
+  "hooks": {},
+  "postadd": {
+    "github.com": {
+      "name": "Sonder9927",
+      "email": "merak19981999@gmail.com"
+    }
+  },
+  "alias": {
+    "github://": "https://github.com/"
+  }
+}

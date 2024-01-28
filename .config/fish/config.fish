@@ -5,8 +5,9 @@ if status is-interactive
 end
 
 # PATH
-set PATH /home/merak/.local/bin $PATH
-
+set -x PATH /home/merak/.cargo/bin $PATH
+set -x PATH /home/merak/.npm/bin $PATH
+set -x PATH /home/merak/.local/bin $PATH
 
 # editor
 set -gx EDITOR lvim

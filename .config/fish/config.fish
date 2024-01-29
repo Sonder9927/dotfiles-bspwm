@@ -17,6 +17,7 @@ set -gx EDITOR lvim
 eval /home/merak/Applications/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+fish_config theme choose "Rosé Pine"
 scheme set dracula
 thefuck --alias | source
 

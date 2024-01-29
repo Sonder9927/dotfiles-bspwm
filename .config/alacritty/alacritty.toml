@@ -1,4 +1,5 @@
 live_config_reload = true
+import = ["/home/merak/.config/alacritty/themes/rose-pine-moon.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -27,20 +28,20 @@ bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "Operator Mono Bold", style = "Bold Italic" }
 bold_italic = { family = "Operator Mono Bold", style = "Bold Italic" }
 
-[colors]
-# primary = { background = "#2e3440", foreground = "0xf1ebeb" }
-primary = { background = "#2e3440", foreground = "#c7edcc" }
-vi_mode_cursor = { text = "CellBackground", cursor = "CellForeground" }
-draw_bold_text_with_bright_colors = true
+# [colors]
+# # primary = { background = "#2e3440", foreground = "0xf1ebeb" }
+# primary = { background = "#2e3440", foreground = "#c7edcc" }
+# vi_mode_cursor = { text = "CellBackground", cursor = "CellForeground" }
+# draw_bold_text_with_bright_colors = true
 
-[colors.bright]
-black = "0x667581"
-red = "0xef5253"
-green = "0x7cc844"
-yellow = "0xe4b51c"
-magenta = "0xa363d5"
-cyan = "0x52cbb0"
-white = "0xf5f7fa"
+# [colors.bright]
+# black = "0x667581"
+# red = "0xef5253"
+# green = "0x7cc844"
+# yellow = "0xe4b51c"
+# magenta = "0xa363d5"
+# cyan = "0x52cbb0"
+# white = "0xf5f7fa"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"

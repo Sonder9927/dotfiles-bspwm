@@ -1,4 +1,3 @@
-# Defined via `source`
-function r --wraps=ranger --description 'alias rg ranger'
+function r --wraps=ranger --description 'alias r ranger'
   ranger $argv; 
 end

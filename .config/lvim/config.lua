@@ -100,14 +100,17 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyz
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	-- Mappings.
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "<space>lf", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
+	-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- -- Mappings.
+	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	-- vim.keymap.set("n", "<space>lf", function()
+	-- 	vim.lsp.buf.format({ async = true })
+	-- end, bufopts)
 
-	client.server_capabilities.hoverProvider = false
+	if client.name == "ruff_lsp" then
+		-- Disable hover in favor of Pyright
+		client.server_capabilities.hoverProvider = false
+	end
 end
 
 -- Configure `ruff-lsp`.
@@ -122,10 +125,25 @@ require("lspconfig").ruff_lsp.setup({
 		},
 	},
 })
+require("lspconfig").pyright.setup({
+	setting = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
+			},
+		},
+	},
+})
+
 -- setup formatting
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
-	-- { command = "ruff", filetypes = { "python" }, args = { "--line-length=79" } },
+	-- { command = "ruff-lsp", filetypes = { "python" }, args = { "--line-length=79" } },
 	{ command = "stylua", filetypes = { "lua" } },
 	-- { command = "prettierd", extra_filetypes = { "toml" } },
 	{ command = "taplo", filetypes = { "toml" } },
@@ -142,7 +160,7 @@ formatters.setup({
 -- setup linting
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	-- { command = "ruff", filetypes = { "python" } },
+	-- { command = "ruff-lsp", filetypes = { "python" } },
 	-- {
 	-- 	command = "shellcheck",
 	-- 	args = { "--severity", "warning" },

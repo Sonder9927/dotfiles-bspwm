@@ -74,7 +74,7 @@ lvim.builtin.which_key.mappings["t"] = {
 	w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics" },
 	D = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
 	f = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+	L = { "<cmd>Trouble loclist<cr>", "LocationList" },
 }
 
 -- Additional binding for debug
@@ -183,18 +183,26 @@ lvim.plugins = {
 	-- trouble
 	{
 		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
+		cmd = "Trouble",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{
+				"<leader>tl",
+				"<cmd>Trouble lsp toogle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+		},
 	},
 	-- python
 	{
 		"neoclide/coc.nvim",
-		branch = "master",
-		build = "yarn install --frozen-lockfile",
+		branch = "release",
 	},
 	"AckslD/swenv.nvim",
 	"mfussenegger/nvim-dap-python",
 	"nvim-neotest/neotest",
 	"nvim-neotest/neotest-python",
+	"nvim-neotest/nvim-nio",
 	-- rust
 	{ "simrat39/rust-tools.nvim", ft = "rust" },
 	{

@@ -1,5 +1,6 @@
-live_config_reload = true
-import = ["/home/merak/.config/alacritty/themes/rose-pine-moon.toml"]
+# import = ["/home/merak/.config/alacritty/themes/rose-pine-moon.toml"]
+general.live_config_reload = true
+general.import = ["/home/merak/.config/alacritty/themes/rose-pine-moon.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -47,7 +48,7 @@ bold_italic = { family = "Operator Mono Bold", style = "Bold Italic" }
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 save_to_clipboard = true
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 args = ["--login"]
 
@@ -62,3 +63,5 @@ bindings = [
   { key = "Copy", mods = "None", action = "Copy" },
   { key = "Paste", mods = "None", action = "Paste" },
 ]
+
+[terminal]

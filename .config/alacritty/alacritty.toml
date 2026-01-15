@@ -24,25 +24,13 @@ style = { shape = "Block", blinking = "On" }
 
 [font]
 size = 20
+# normal = { family = "Maple Mono NL NF CN", style = "Normal" }
 normal = { family = "JetBrainsMono Nerd Font", style = "Bold" }
-bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+bold = { family = "Maple Mono NL NF CN", style = "Bold" }
+# bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "Operator Mono Bold", style = "Bold Italic" }
 bold_italic = { family = "Operator Mono Bold", style = "Bold Italic" }
 
-# [colors]
-# # primary = { background = "#2e3440", foreground = "0xf1ebeb" }
-# primary = { background = "#2e3440", foreground = "#c7edcc" }
-# vi_mode_cursor = { text = "CellBackground", cursor = "CellForeground" }
-# draw_bold_text_with_bright_colors = true
-
-# [colors.bright]
-# black = "0x667581"
-# red = "0xef5253"
-# green = "0x7cc844"
-# yellow = "0xe4b51c"
-# magenta = "0xa363d5"
-# cyan = "0x52cbb0"
-# white = "0xf5f7fa"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
